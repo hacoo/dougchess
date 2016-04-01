@@ -1,0 +1,2 @@
+# dougchess
+Clojure Minichess AI.
