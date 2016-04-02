@@ -1,10 +1,10 @@
 (ns dougchess.core
-  (import zeromq)
-  (import chess)
-  (import main)
+  [:require [dougchess.communicate :as comm]]
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Connects client to framework on port 54361, with name Doug."
   [& args]
-  (println "Hello, World!"))
+  (println "Connecting to framework...")
+  (future 
+    (comm/start-communication 54361 "Doug" :debug-print true)))
