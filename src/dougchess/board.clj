@@ -4,17 +4,17 @@
 
 ;; Basic functions for dealing with the board, moving, etc.
 
-;; For speed, the board is represented as a single string.
-
+;; The board is represented as a nested vector.
 (ns dougchess.board
   (:require [clojure.string :refer [join]])
 )
+
+
 
 ;; Global board state:
 (def turn (atom nil)) ;; the turn number
 (def color (atom nil)) ;; who is playing
 (def board (atom nil)) ;; the current board state
-
 
 (defn board-to-string
   "String -> String
@@ -25,8 +25,6 @@
          (join "\n" (map #(apply str %) splits))
          "\n"
          )))
-
-(print (board-to-string @board))
 
 (defn is-valid
  "int -> int -> bool
@@ -117,7 +115,7 @@
   "a5-a4\n")
 
 (defn move-greedy
-  "-> String update board!
+ "-> String update board!
   Make a greedy move and return it."
   []
   "a5-a4\n")
